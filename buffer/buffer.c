@@ -11,7 +11,7 @@
 int _write(int file, char *data, int lenght)
 {
 	static int	count;
-	static char	buffer[BUFF_SIZE] = "";
+	static char	buffer[BUF_SIZE] = "";
 	int i, r = 0;
 
 	if (file == FLUSH)
@@ -24,7 +24,7 @@ int _write(int file, char *data, int lenght)
 	for (i = 0; i < lenght; i++)
 	{
 		buffer[count++] = data[i];
-		if (count >= BUFF_SIZE)
+		if (count >= BUF_SIZE)
 		{
 			r += write(file, buffer, count);
 			count = 0;
